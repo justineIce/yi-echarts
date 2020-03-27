@@ -1,6 +1,12 @@
 <template>
     <div id="app">
         <el-tabs tab-position="left">
+            <el-tab-pane label="男女比例图">
+                <yi-gender-ratio  width="482px"
+                                  height="150px"
+                                  style="border:1px solid red"
+                                  :data="[20,50]"></yi-gender-ratio>
+            </el-tab-pane>
             <el-tab-pane label="折线图">
                 <yi-line width="482px"
                          height="300px"
@@ -13,7 +19,6 @@
                          style="border:1px solid red"
                          :data="chartData"></yi-line>
             </el-tab-pane>
-
             <el-tab-pane label="柱状图">
                 <yi-histogram width="482px"
                               height="300px"

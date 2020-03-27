@@ -5,5 +5,5 @@ build/
 node_modules/
 test/
 gulpfile.js
-/examples
-/.npmignore
+examples
+.npmignore

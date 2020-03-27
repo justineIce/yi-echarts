@@ -7,9 +7,9 @@ import YiWordCloud from './packages/wordcloud/index'
 import YiLiquidfill from './packages/liquidfill/index'
 
 //男女比例图
-import YiGenderRatio from './packages/gender-ratio/index'
+import YiGenderRatio from './packages/gender-ratio'
 //地图
-import YiMap from './packages/map/index'
+import YiMap from './packages/map'
 //排序图表
 import YiRankingIcon from './packages/ranking/icon'
 import YiRanking from './packages/ranking/ranking'
