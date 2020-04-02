@@ -1,6 +1,31 @@
 <template>
     <div id="app">
         <el-tabs tab-position="left">
+            <el-tab-pane label="词云图">
+                <yi-word-cloud  width="800px"
+                                height="500px"
+                                style="border:1px solid red"
+                                :data="{
+                                   dimensions: ['word', 'count'],
+                                   source:wordData
+                                }"
+                                :settings="{
+                                   shape:'pentagon'
+                                }"></yi-word-cloud>
+                <yi-word-cloud  width="800px"
+                                height="500px"
+                                style="border:1px solid red"
+                                :data="{
+                                   dimensions: ['word', 'count'],
+                                   source:wordData
+                                }"
+                                :settings="{
+                                   shape:'pentagon',
+                                   image:wImage,
+                                   width:'50%'
+                                }"></yi-word-cloud>
+                <img width="200px" src="../examples/person.png"/>
+            </el-tab-pane>
             <el-tab-pane label="男女比例图">
                 <yi-gender-ratio  width="482px"
                                   height="150px"
@@ -66,12 +91,6 @@
                          style="border:1px solid red"
                          :data="mapData"></yi-map>
             </el-tab-pane>
-            <el-tab-pane label="词云图">
-                <yi-word-cloud  width="482px"
-                                height="300px"
-                                style="border:1px solid red"
-                                :data="wordData"></yi-word-cloud>
-            </el-tab-pane>
             <el-tab-pane label="男女比例图">
                 <yi-gender-ratio  width="482px"
                                   height="150px"
@@ -126,25 +145,6 @@
                     { name: '内蒙古', value: 50 },
                     { name: '辽宁', value: 60 },
                 ],
-                wordData: {
-                    dimensions: ['word', 'count'],
-                    source:  [{
-                        'word': 'visualMap',
-                        'count': 22199
-                    }, {
-                        'word': 'continuous',
-                        'count': 10288
-                    }, {
-                        'word': 'contoller',
-                        'count': 620
-                    }, {
-                        'word': 'series',
-                        'count': 274470
-                    }, {
-                        'word': 'gauge',
-                        'count': 12311
-                    }]
-                },
                 rankingData: [
                     { name: '北京', value: 10 },
                     { name: '天津', value: 20 },
@@ -155,8 +155,20 @@
                 ]
             }
         },
+        computed:{
+          wImage(){
+              return require('../examples/person.png')
+          },
+            wordData(){
+                return [...Array(500).keys()].map(item=>{
+                    return {
+                        word:'adf'+item,
+                        count :Math.floor(Math.random()*100)
+                    }
+                })
+            }
+        },
         methods:{
-
         },
         mounted() {
 

@@ -86,16 +86,17 @@ export default {
       })
     },
     resize () {
-      clearInterval(this.time)
-      if (this.$el && this.$el.clientWidth && this.$el.clientHeight) {
-        this.echartsResize()
-      } else {
-        this.time = setInterval(() => {
-          if (this.echarts) {
-            this.resize()
-          }
-        }, 2000)
-      }
+      this.echartsResize()
+      // clearInterval(this.time)
+      // if (this.$el && this.$el.clientWidth && this.$el.clientHeight) {
+      //   this.echartsResize()
+      // } else {
+      //   this.time = setInterval(() => {
+      //     if (this.echarts) {
+      //       this.resize()
+      //     }
+      //   }, 2000)
+      // }
     },
     echartsResize () {
       if (this.echarts) this.echarts.resize()

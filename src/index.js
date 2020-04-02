@@ -1,10 +1,10 @@
-import YiLine from './packages/line/index'
-import YiBar from './packages/bar/index'
-import YiHistogram from './packages/histogram/index'
-import YiPie from './packages/pie/index'
-import YiRadar from './packages/radar/index'
-import YiWordCloud from './packages/wordcloud/index'
-import YiLiquidfill from './packages/liquidfill/index'
+import YiLine from './packages/line'
+import YiBar from './packages/bar'
+import YiHistogram from './packages/histogram'
+import YiPie from './packages/pie'
+import YiRadar from './packages/radar'
+import YiWordCloud from './packages/wordcloud'
+import YiLiquidfill from './packages/liquidfill'
 
 //男女比例图
 import YiGenderRatio from './packages/gender-ratio'
