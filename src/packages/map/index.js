@@ -42,8 +42,6 @@ const map = (source, settings, extra) => {
     }
     return res
   }
-  let max = 480, min = 9 // todo
-  let maxSize4Pin = 50, minSize4Pin = 20
   let options = {
     tooltip: {
       trigger: 'item',
@@ -103,10 +101,7 @@ const map = (source, settings, extra) => {
         coordinateSystem: 'geo',
         symbol: 'pin', // 气泡
         symbolSize: function (val) {
-          var a = (maxSize4Pin - minSize4Pin) / (max - min)
-          var b = minSize4Pin - a * min
-          b = maxSize4Pin - a * max
-          return a * val[2] + b
+          return val[2].toString().length * 10
         },
         label: {
           normal: {
@@ -132,7 +127,7 @@ const map = (source, settings, extra) => {
         coordinateSystem: 'geo',
         data: convertData(data),
         symbolSize: function (val) {
-          return val[2] / 10
+          return val[1] / 10
         },
         label: {
           normal: {
