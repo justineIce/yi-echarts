@@ -1,6 +1,12 @@
 <template>
     <div id="app">
         <el-tabs tab-position="left">
+            <el-tab-pane label="男女比例图">
+                <yi-gender-ratio  width="482px"
+                                  height="150px"
+                                  style="border:1px solid red"
+                                  :data="[20,50]"></yi-gender-ratio>
+            </el-tab-pane>
             <el-tab-pane label="词云图">
                 <yi-word-cloud  width="800px"
                                 height="500px"
@@ -26,15 +32,10 @@
                                 }"></yi-word-cloud>
                 <img width="200px" src="../examples/person.png"/>
             </el-tab-pane>
-            <el-tab-pane label="男女比例图">
-                <yi-gender-ratio  width="482px"
-                                  height="150px"
-                                  style="border:1px solid red"
-                                  :data="[20,50]"></yi-gender-ratio>
-            </el-tab-pane>
             <el-tab-pane label="折线图">
                 <yi-line width="482px"
                          height="300px"
+                         themeName="roma"
                          style="border:1px solid red"
                          :data="data"
                          :grid="{left:'20%'}"

@@ -2,6 +2,9 @@ import echartsLib from 'echarts/lib/echarts'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/dataZoom'
+//主题
+import 'echarts/theme/roma'
+
 import { camelToKebab, debounce, ECHARTS_SETTINGS } from './utils'
 
 export default {
@@ -46,6 +49,9 @@ export default {
     xAxis: [Object, Array],
     yAxis: [Object, Array],
     series: [Object, Array],
+    theme: Object,
+    themeName: String,
+    colors: { type: Array },
     // 点击事件
     events: { type: Object },
     // init 附加参数
@@ -61,7 +67,12 @@ export default {
     events: {
       deep: true,
       handler: 'createEventProxy'
-    }
+    },
+    theme: {
+      deep: true,
+      handler: 'themeChange'
+    },
+    themeName: 'themeChange',
   },
   computed: {
     canvasStyle () {
@@ -70,7 +81,10 @@ export default {
         height: this.height,
         position: 'relative'
       }
-    }
+    },
+      chartColor () {
+        return this.colors || (this.theme && this.theme.color)
+      }
   },
   data () {
     return {
@@ -108,6 +122,11 @@ export default {
     removeResizeListener () {
       window.removeEventListener('resize', this.resizeHandler)
       this._once.onresize = false
+    },
+    themeChange () {
+      this.clean()
+      this.echarts = null
+      this.init()
     },
     clean () {
       this.removeResizeListener()
@@ -163,7 +182,8 @@ export default {
     // 初始化
     init () {
       // if (this.data) return
-      this.echarts = echartsLib.init(this.$refs.canvas, 'light', this.initOptions)
+      const themeName = this.themeName || this.theme || 'light'
+      this.echarts = echartsLib.init(this.$refs.canvas, themeName, this.initOptions)
       if (this.data) this.changeHandler()
       this.createEventProxy()
       this.addResizeListener()
@@ -177,6 +197,7 @@ export default {
         tooltip: this.tooltip,
         legend: this.legend,
         dataZoom: this.dataZoom,
+        color: this.chartColor,
         grid:this.grid
       }
       let options = null
@@ -199,6 +220,7 @@ export default {
       }
     },
     optionsHandler (options) {
+      options.color = this.chartColor
       ECHARTS_SETTINGS.forEach(setting => {
         if (this[setting]) options[setting] = Object.assign({}, options[setting], this[setting])
       })
