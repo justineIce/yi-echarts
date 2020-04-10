@@ -11,8 +11,7 @@ import YiGenderRatio from './packages/gender-ratio'
 //地图
 import YiMap from './packages/map'
 //排序图表
-import YiRankingIcon from './packages/ranking/icon'
-import YiRanking from './packages/ranking/ranking'
+import YiRanking from './packages/ranking'
 const components = [
   YiLine,
   YiBar,
@@ -23,7 +22,6 @@ const components = [
   YiLiquidfill,
   YiGenderRatio,
   YiMap,
-  YiRankingIcon,
   YiRanking
 ]
 

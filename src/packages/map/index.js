@@ -12,6 +12,9 @@ function getMaxData (data) {
 }
 
 const map = (source, settings, extra) => {
+  const {
+    rangColor = ['#00467F', '#A5CC82']
+  } = settings
   if (!(source instanceof Array)) {
     console.log('数据类型错误，应为Array')
     return false
@@ -60,7 +63,7 @@ const map = (source, settings, extra) => {
       calculable: true,
       seriesIndex: [0],
       inRange: {
-        color: ['#00467F', '#A5CC82'] // 蓝绿
+        color: rangColor // 蓝绿
       }
     },
     geo: {

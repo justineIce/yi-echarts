@@ -1,6 +1,17 @@
 <template>
     <div id="app">
         <el-tabs tab-position="left">
+            <el-tab-pane label="排名">
+                <yi-ranking  width="482px"
+                             height="300px"
+                             style="border:1px solid red"
+                             :settings="{icon:true}"
+                             :data="rankingData"></yi-ranking>
+                <yi-ranking  width="482px"
+                             height="300px"
+                             style="border:1px solid red"
+                             :data="rankingData"></yi-ranking>
+            </el-tab-pane>
             <el-tab-pane label="男女比例图">
                 <yi-gender-ratio  width="482px"
                                   height="150px"
@@ -89,6 +100,11 @@
             <el-tab-pane label="地图">
                 <yi-map  width="482px"
                          height="300px"
+                         :settings="{rangColor:['#E01F54','#001852']}"
+                         style="border:1px solid red"
+                         :data="mapData"></yi-map>
+                <yi-map  width="482px"
+                         height="300px"
                          style="border:1px solid red"
                          :data="mapData"></yi-map>
             </el-tab-pane>
@@ -98,16 +114,7 @@
                                   style="border:1px solid red"
                                   :data="[20,50]"></yi-gender-ratio>
             </el-tab-pane>
-            <el-tab-pane label="排名">
-                <yi-ranking  width="482px"
-                             height="300px"
-                             style="border:1px solid red"
-                             :data="rankingData"></yi-ranking>
-                <yi-ranking-icon  width="482px"
-                                  height="300px"
-                                  style="border:1px solid red"
-                                  :data="rankingData"></yi-ranking-icon>
-            </el-tab-pane>
+
         </el-tabs>
     </div>
 </template>
