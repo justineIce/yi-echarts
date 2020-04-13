@@ -1,12 +1,10 @@
 import Core from "../../core";
 import echarts from "echarts";
-const ranking = (source, settings, extra) => {
+const ranking = (source, settings) => {
     const {
         icon = false,
-        color = 'red'//#1296DB
+        color = '#3BA4DB'
     } = settings
-    console.log(extra,icon)
-
     // 对数据进行排序
     source = source.sort((a, b) => {
         return a.value * 1 - b.value * 1
@@ -130,11 +128,11 @@ const ranking = (source, settings, extra) => {
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                             offset: 0,
-                            color: '#6390F0'
+                            color: color
 
                         }, {
                             offset: 1,
-                            color: '#25EBE9'
+                            color: color
 
                         }]),
                         barBorderRadius: 10
@@ -146,8 +144,8 @@ const ranking = (source, settings, extra) => {
                         position: 'insideRight',
                         distance: 0,
                         offset: [0, -15],
-                        // color: '#fff',
-                        fontSize: 12,
+                        color: color,
+                        fontSize: 13,
                         padding: [5, 10, 5, 10],
                         formatter: '{b}:{c}',
                     }
