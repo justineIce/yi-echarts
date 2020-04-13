@@ -6,11 +6,11 @@ import YiRadar from './packages/radar'
 import YiWordCloud from './packages/wordcloud'
 import YiLiquidfill from './packages/liquidfill'
 
-//男女比例图
+// 男女比例图
 import YiGenderRatio from './packages/gender-ratio'
-//地图
+// 地图
 import YiMap from './packages/map'
-//排序图表
+// 排序图表
 import YiRanking from './packages/ranking'
 const components = [
   YiLine,

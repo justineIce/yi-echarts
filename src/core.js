@@ -2,7 +2,7 @@ import echartsLib from 'echarts/lib/echarts'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/dataZoom'
-//主题
+// 主题
 import 'echarts/theme/roma'
 
 import { camelToKebab, debounce, ECHARTS_SETTINGS } from './utils'
@@ -44,7 +44,7 @@ export default {
     height: { type: String, default: '400px' },
     tooltip: Object,
     legend: Object,
-    grid:Object,
+    grid: Object,
     dataZoom: { type: [Object, Array] },
     xAxis: [Object, Array],
     yAxis: [Object, Array],
@@ -72,7 +72,7 @@ export default {
       deep: true,
       handler: 'themeChange'
     },
-    themeName: 'themeChange',
+    themeName: 'themeChange'
   },
   computed: {
     canvasStyle () {
@@ -82,9 +82,9 @@ export default {
         position: 'relative'
       }
     },
-      chartColor () {
-        return this.colors || (this.theme && this.theme.color)
-      }
+    chartColor () {
+      return this.colors || (this.theme && this.theme.color)
+    }
   },
   data () {
     return {
@@ -198,7 +198,7 @@ export default {
         legend: this.legend,
         dataZoom: this.dataZoom,
         color: this.chartColor,
-        grid:this.grid
+        grid: this.grid
       }
       let options = null
       this.dataEmpty = false

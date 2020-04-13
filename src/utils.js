@@ -30,9 +30,9 @@ function getStackMap (stack) {
   })
   return stackMap
 }
-/// / 获取指标及别名
+// / / 获取指标及别名
 function getMetricsAndTarget (data) {
-  const metrics = [], legend = []
+  const metrics = []; const legend = []
   data.forEach(item => {
     let arr = item.split(':')
     metrics.push(arr[0])

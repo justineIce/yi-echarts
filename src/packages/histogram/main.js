@@ -1,16 +1,16 @@
 import { getStackMap, getMetricsAndTarget } from '../../utils'
 function getBarXAxis (args) {
   let { dimension, sources, label } = args
-  return dimension.map(item =>{
-    item ={
-        type: 'category',
-        nameGap: 20,
-        axisLine: { show: false },
-        axisTick: { show: false },
-        nameLocation: 'middle',
-        data: sources.map(row => row[item])
+  return dimension.map(item => {
+    item = {
+      type: 'category',
+      nameGap: 20,
+      axisLine: { show: false },
+      axisTick: { show: false },
+      nameLocation: 'middle',
+      data: sources.map(row => row[item])
     }
-    if (label){
+    if (label) {
       item.axisLabel = label
     }
     return item
@@ -18,7 +18,7 @@ function getBarXAxis (args) {
 }
 function getBarYAxis (args) {
   let { metrics } = args
-  return metrics.map(item => ({
+  return metrics.map(() => ({
     type: 'value',
     axisLine: { show: false },
     axisTick: { show: false }
@@ -57,7 +57,7 @@ function getBarSeries (args) {
   })
   return series
 }
-//柱状图
+// 柱状图
 export const histogram = (dimensions, source, settings, extra) => {
   const sources = JSON.parse(JSON.stringify(source))
   const {
@@ -77,7 +77,7 @@ export const histogram = (dimensions, source, settings, extra) => {
 
   let legend = Object.assign({}, { show: true, type: 'scroll' }, extra.legend, { data: targets })
   let tooltip = Object.assign({}, { show: true, trigger: 'axis' }, extra.tooltip)
-  let grid = Object.assign({}, { left: '10%', right: '10%', bottom: (extra.dataZoom || (label && label.rotate))  ? '60' : '30' }, extra.grid)
+  let grid = Object.assign({}, { left: '10%', right: '10%', bottom: (extra.dataZoom || (label && label.rotate)) ? '60' : '30' }, extra.grid)
 
   const xAxis = getBarXAxis({ dimension, sources, label })
   const yAxis = getBarYAxis({ metrics })

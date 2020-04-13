@@ -60,7 +60,7 @@ export const line = (dimensions, source, settings, extra) => {
     dimension = [dimensions[0]], // 维度
     stack = {}, // 堆叠
     area = false,
-    label={}
+    label = {}
   } = settings
   // 指标
   let target = dimensions.slice()
@@ -73,9 +73,9 @@ export const line = (dimensions, source, settings, extra) => {
   const { metrics, targets } = getMetricsAndTarget(target)
   let legend = Object.assign({}, { show: true, type: 'scroll' }, extra.legend, { data: targets })
   let tooltip = Object.assign({}, { show: true, trigger: 'axis' }, extra.tooltip)
-  let grid = Object.assign({}, { left: '10%', right: '10%', bottom: (extra.dataZoom || label.rotate   ? '60' : '30')}, extra.grid)
+  let grid = Object.assign({}, {left: '10%', right: '10%', bottom: (extra.dataZoom || label.rotate ? '60' : '30')}, extra.grid)
 
-  const xAxis = getLineXAxis({ dimension, sources,label })
+  const xAxis = getLineXAxis({ dimension, sources, label })
   const yAxis = getLineYAxis({ metrics })
   const series = getLineSeries({ metrics, targets, sources, stack, area })
   const options = { grid, legend, tooltip, xAxis, yAxis, series }

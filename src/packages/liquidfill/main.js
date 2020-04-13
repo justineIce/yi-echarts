@@ -1,7 +1,7 @@
 // https://github.com/ecomfe/echarts-liquidfill
 export const liquidfill = (dimensions, source, settings, extra) => {
   const {
-    dimension = dimensions[0],
+    // dimension = dimensions[0],
     metrics = dimensions[1],
     shape = 'circle'
   } = settings

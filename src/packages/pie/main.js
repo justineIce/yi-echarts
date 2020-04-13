@@ -46,7 +46,7 @@ export const pie = (dimensions, source, settings, extra) => {
     formatter: '{b} : {c} ({d}%)'
   }, extra.tooltip)
   let orient = legend.orient ? legend.orient : 'horizontal'
-    let grid = Object.assign({}, { left: '10%', right: '10%'}, extra.grid)
+  let grid = Object.assign({}, {left: '10%', right: '10%'}, extra.grid)
   const series = getPieSeries({
     sources,
     dimension,
