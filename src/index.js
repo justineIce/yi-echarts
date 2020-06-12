@@ -35,14 +35,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 export default {
   install,
-  YiLine,
-  YiBar,
-  YiHistogram,
-  YiPie,
-  YiRadar,
-  YiWordCloud,
-  YiLiquidfill,
-  YiGenderRatio,
-  YiMap,
-  YiRanking
+  ...components
 }
