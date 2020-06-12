@@ -16,7 +16,6 @@ const map = (source, settings, extra) => {
     rangColor = ['#00467F', '#A5CC82']
   } = settings
   if (!(source instanceof Array)) {
-    console.log('数据类型错误，应为Array')
     return false
   }
   const data = JSON.parse(JSON.stringify(source))
