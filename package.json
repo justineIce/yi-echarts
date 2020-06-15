@@ -1,6 +1,6 @@
 {
   "name": "yi-echarts",
-  "version": "0.1.13-beta",
+  "version": "0.2.0",
   "description": "基于echarts的图标封装",
   "main": "lib/yi-echarts.common.js",
   "private": false,
