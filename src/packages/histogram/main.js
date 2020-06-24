@@ -26,6 +26,7 @@ function getBarYAxis (args) {
 }
 function getBarSeries (args) {
   const {
+    flag,
     metrics,
     targets,
     sources,
@@ -47,7 +48,13 @@ function getBarSeries (args) {
     let seriesItem = {
       name: targets[index],
       type: ~showLine.indexOf(item) ? 'line' : 'bar',
-      data: dataTemp[item]
+      data: dataTemp[item],
+      label: {
+        normal: {
+          show: true,
+          position: flag ? 'top' : 'right'
+        }
+      }
     }
     if (metrics.length === 1) {
       seriesItem.itemStyle = {
@@ -89,7 +96,8 @@ export const histogram = (dimensions, source, settings, extra) => {
 
   const xAxis = getBarXAxis({ dimension, sources, label })
   const yAxis = getBarYAxis({ metrics })
-  const series = getBarSeries({ metrics, targets, sources, showLine, stack, extra })
+  let flag = true
+  const series = getBarSeries({ flag, metrics, targets, sources, showLine, stack, extra })
 
   const options = { grid, legend, tooltip, xAxis, yAxis, series }
   return options

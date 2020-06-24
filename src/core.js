@@ -222,7 +222,10 @@ export default {
     optionsHandler (options) {
       options.color = this.chartColor
       ECHARTS_SETTINGS.forEach(setting => {
-        if (this[setting]) options[setting] = Object.assign({}, options[setting], this[setting])
+        if (this[setting]) {
+          options[setting] = Object.assign({}, options[setting], this[setting])
+          // this[setting] instanceof Object
+        }
       })
       this.echarts.setOption(options)
       this.resize()

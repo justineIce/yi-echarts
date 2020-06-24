@@ -1,12 +1,36 @@
 <template>
   <div id="app">
     <el-tabs tab-position="left">
-      <el-tab-pane label="男女比例图">
-        <yi-gender-ratio
+      <el-tab-pane label="折线图">
+        <yi-line
           width="482px"
-          height="150px"
+          height="300px"
+          theme-name="roma"
           style="border:1px solid red"
-          :data="[20,50]"
+          :data="data"
+          :grid="{left:'20%'}"
+          :settings="{label:{rotate:20}}"
+        />
+        <yi-line
+          width="482px"
+          height="300px"
+          style="border:1px solid red"
+          :data="chartData"
+        />
+      </el-tab-pane>
+      <el-tab-pane label="饼图">
+        <yi-pie
+          width="482px"
+          height="300px"
+          style="border:1px solid red"
+          :data="chartData"
+        />
+        <yi-pie
+          width="482px"
+          height="300px"
+          style="border:1px solid red"
+          :data="chartData"
+          :legend="{ orient:'vertical'}"
         />
       </el-tab-pane>
       <el-tab-pane label="排名">
@@ -24,7 +48,6 @@
           :data="rankingData"
         />
       </el-tab-pane>
-
       <el-tab-pane label="词云图">
         <yi-word-cloud
           width="800px"
@@ -57,23 +80,6 @@
           src="../examples/person.png"
         >
       </el-tab-pane>
-      <el-tab-pane label="折线图">
-        <yi-line
-          width="482px"
-          height="300px"
-          theme-name="roma"
-          style="border:1px solid red"
-          :data="data"
-          :grid="{left:'20%'}"
-          :settings="{label:{rotate:20}}"
-        />
-        <yi-line
-          width="482px"
-          height="300px"
-          style="border:1px solid red"
-          :data="chartData"
-        />
-      </el-tab-pane>
       <el-tab-pane label="柱状图">
         <yi-histogram
           width="482px"
@@ -92,14 +98,6 @@
       </el-tab-pane>
       <el-tab-pane label="条形图">
         <yi-bar
-          width="482px"
-          height="300px"
-          style="border:1px solid red"
-          :data="chartData"
-        />
-      </el-tab-pane>
-      <el-tab-pane label="饼图">
-        <yi-pie
           width="482px"
           height="300px"
           style="border:1px solid red"

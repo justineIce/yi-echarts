@@ -45,7 +45,13 @@ function getLineSeries (args) {
       name: targets[index],
       type: 'line',
       smooth: true,
-      data: dataTemp[item]
+      data: dataTemp[item],
+      label: {
+        normal: {
+          show: true,
+          position: 'top'
+        }
+      }
     }
     if (stack && stackMap[item])seriesItem.stack = stackMap[item]
     if (area)seriesItem.areaStyle = { normal: {} }
